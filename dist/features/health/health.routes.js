@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const health_controller_1 = require("./health.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const healthRoutes = (0, express_1.Router)();
+const diagnosticsAccess = [auth_middleware_1.authenticate, (0, auth_middleware_1.authorizeRoles)("super_admin")];
+healthRoutes.get("/", health_controller_1.getHealth);
+healthRoutes.get("/kinerja-dashboard", ...diagnosticsAccess, health_controller_1.getKinerjaDashboardHealth);
+exports.default = healthRoutes;

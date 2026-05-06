@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const attendance_controller_1 = require("./attendance.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const attendanceRoutes = (0, express_1.Router)();
+const manageAssessmentAccess = (0, auth_middleware_1.authorizeRoles)("super_admin", "admin_satker", "kepala_satker", "kasubbag_umum", "ketua_tim", "pejabat_penilai", "reviewer");
+attendanceRoutes.get("/", attendance_controller_1.getAttendanceAssessments);
+attendanceRoutes.post("/", manageAssessmentAccess, attendance_controller_1.saveAttendanceAssessment);
+exports.default = attendanceRoutes;

@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const berakhlak_controller_1 = require("./berakhlak.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const berakhlakRoutes = (0, express_1.Router)();
+const manageBerakhlakAccess = (0, auth_middleware_1.authorizeRoles)("super_admin", "admin_satker", "kepala_satker", "kasubbag_umum", "ketua_tim", "pejabat_penilai", "pegawai", "reviewer");
+berakhlakRoutes.get("/evaluations", berakhlak_controller_1.getBerakhlakEvaluations);
+berakhlakRoutes.post("/evaluations", manageBerakhlakAccess, berakhlak_controller_1.createBerakhlakEvaluation);
+berakhlakRoutes.put("/evaluations/:id", manageBerakhlakAccess, berakhlak_controller_1.updateBerakhlakEvaluation);
+berakhlakRoutes.get("/dashboard", berakhlak_controller_1.getBerakhlakDashboard);
+exports.default = berakhlakRoutes;

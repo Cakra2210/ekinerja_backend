@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.rankingsRoutes = exports.evaluationRoutes = void 0;
+const express_1 = require("express");
+const evaluation_controller_1 = require("./evaluation.controller");
+const ranking_controller_1 = require("./ranking.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const evaluationRoutes = (0, express_1.Router)();
+exports.evaluationRoutes = evaluationRoutes;
+const rankingsRoutes = (0, express_1.Router)();
+exports.rankingsRoutes = rankingsRoutes;
+const manageEvaluationAccess = (0, auth_middleware_1.authorizeRoles)("super_admin", "admin_satker", "kepala_satker", "kasubbag_umum", "ketua_tim", "pejabat_penilai", "pegawai", "reviewer");
+evaluationRoutes.get("/", evaluation_controller_1.getEvaluations);
+evaluationRoutes.post("/", manageEvaluationAccess, evaluation_controller_1.createEvaluation);
+evaluationRoutes.put("/:id", manageEvaluationAccess, evaluation_controller_1.updateEvaluation);
+rankingsRoutes.get("/", ranking_controller_1.getRankings);

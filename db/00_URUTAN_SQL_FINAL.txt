@@ -1,0 +1,26 @@
+URUTAN SQL FINAL APLIKASI BPS KABUPATEN LUWU
+
+Untuk database baru:
+1. Import: kinerja_pegawai_bps.sql
+2. Jalankan migrasi berikut secara berurutan:
+   - migrasi_hapus_satuan_kerja_kinerja.sql
+   - migrasi_indikator_dan_kegiatan_kinerja.sql
+   - migrasi_fase1_master_kinerja.sql
+   - migrasi_fase2_perencanaan_kinerja.sql
+   - migrasi_fase3_operasional_kinerja.sql
+   - migrasi_fase4_kontrol_kinerja.sql
+   - migrasi_fase5_evaluasi_kinerja.sql
+   - migrasi_fase6_bps_kinerja.sql
+   - migrasi_fase7_integrasi_otomatisasi_kinerja.sql
+   - migrasi_fase8_dokumen_kinerja.sql
+   - migrasi_fase9_analitik_kinerja.sql
+   - migrasi_fase10_keamanan_kinerja.sql
+   - migrasi_fase11_tindak_lanjut_sdm_kinerja.sql
+   - migrasi_role_sidebar_kinerja.sql
+   - migrasi_multi_role_akun.sql
+   - migrasi_matrix_role_only_akun.sql
+
+Catatan:
+- Jika memakai database lama yang sudah aktif, tetap jalankan berurutan mulai dari file yang belum pernah dipasang.
+- Default password akun baru dan reset akun: bps7317
+- Model role terbaru hanya memakai matrix role. Role dasar otomatis: pegawai

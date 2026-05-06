@@ -1,0 +1,86 @@
+export type BerakhlakPayload = {
+  employeeId: number;
+  evaluatorEmployeeId: number;
+  evaluationYear: number;
+  evaluationMonth: number;
+  pelayananResponsif: number;
+  pelayananRamah: number;
+  pelayananSolutif: number;
+  akuntabelProsedur: number;
+  akuntabelTransparansi: number;
+  akuntabelTanggungJawab: number;
+  kompetenPenguasaan: number;
+  kompetenPenyelesaian: number;
+  kompetenPengembangan: number;
+  harmonisTim: number;
+  harmonisRelasi: number;
+  harmonisLingkungan: number;
+  loyalKomitmen: number;
+  loyalAturan: number;
+  loyalDedikasi: number;
+  adaptifPerubahan: number;
+  adaptifFleksibilitas: number;
+  adaptifBelajar: number;
+  kolaboratifKerjaSama: number;
+  kolaboratifDiskusi: number;
+  kolaboratifKoordinasi: number;
+  note: string;
+};
+
+export type DashboardDimension = {
+  key: string;
+  label: string;
+  value: number;
+};
+
+export type EvaluationRow = {
+  id: number;
+  employeeId: number;
+  employeeName: string;
+  employeeNip: string;
+  evaluatorEmployeeId: number;
+  evaluatorName: string;
+  evaluatorNip: string;
+  evaluationYear: number;
+  evaluationMonth: number;
+  pelayananResponsif: number;
+  pelayananRamah: number;
+  pelayananSolutif: number;
+  akuntabelProsedur: number;
+  akuntabelTransparansi: number;
+  akuntabelTanggungJawab: number;
+  kompetenPenguasaan: number;
+  kompetenPenyelesaian: number;
+  kompetenPengembangan: number;
+  harmonisTim: number;
+  harmonisRelasi: number;
+  harmonisLingkungan: number;
+  loyalKomitmen: number;
+  loyalAturan: number;
+  loyalDedikasi: number;
+  adaptifPerubahan: number;
+  adaptifFleksibilitas: number;
+  adaptifBelajar: number;
+  kolaboratifKerjaSama: number;
+  kolaboratifDiskusi: number;
+  kolaboratifKoordinasi: number;
+  pelayananAvg: number;
+  akuntabelAvg: number;
+  kompetenAvg: number;
+  harmonisAvg: number;
+  loyalAvg: number;
+  adaptifAvg: number;
+  kolaboratifAvg: number;
+  finalScore: number;
+  note: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type EvaluationFilters = {
+  year?: number;
+  month?: number;
+  employeeId?: number;
+  viewerEmployeeId?: number;
+  viewerRole?: "super_admin" | "admin_satker" | "kepala_satker" | "kasubbag_umum" | "ketua_tim" | "pejabat_penilai" | "pegawai" | "reviewer";
+};
